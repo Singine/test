@@ -33,9 +33,51 @@
             <li v-show="condition" v-for="item in items">{{ item.msg }}</li>
         </ul>
     </div>
+    <div id="newTest">
+        <ul>
+            <li v-for="value in object">
+               {{ $key }} : {{ value }}
+            </li>
+        </ul>
+        <button v-on:click="clickMe()">click me!</button>
+        <button @click="clickMe('no!')">say no!</button>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames | json }}</span>
+    </div>
+   
 </body>
 <script src="vue.js"></script>
 <script type="text/javascript">
+    var vm2 = new Vue({
+        el:'#newTest',
+        data:{
+            checkedNames: [],
+            checked:'true',
+            object: {
+                 FirstName: 'John',
+                 LastName: 'Doe',
+                 Age: 30
+            }
+        },
+        methods:{
+            clickMe:function(msg){
+                if(msg){
+                    alert(msg)
+                }else{
+                    alert('you clicked me!')
+                }
+            },
+        },
+
+        })
     var vm = new Vue({
         el:'#app',
         data:{
