@@ -8,9 +8,4 @@ just a little demo for fun :)
     <li><a>ng-test.html(AngularJS-1.3.0)</a></li>
     <li><a>vue-test.html(vue-1.0)</a></li>
   </ul>
-       
-      
-       
-      
-       
 </div>
