@@ -4,41 +4,45 @@
 	<meta charset="utf-8">
 </head>
 <body>
-   <!--  <div id="app">
-      <strong>{{ message }}</strong>
-      <ul>
-          <li v-for="todo in todos">
-                {{ todo.text }}
-          </li>
-      </ul>
-          <button v-on:click="reverseMessage">Reverse Message</button>
-    </div> -->
-    <div id="app">
-        <a>firstname:{{firstname}}</a>
-        <a>lastname:{{lastname}}</a>
-        <a>fullname:{{fullname}}</a>
-        <a>a={{a}}</a><a>b={{b}}</a>
-        <a v-if="GG" v-bind:href="url">嘿嘿</a>
-        <input placeholder="请输入" v-model="message" v-on:keydown.enter="addItems">
+   <div id="app">
+        <a style="color: red; font-size: 30px; transition: all 1s ease;">firstname:Eric</a>
+        <a>lastname:Ding</a>
+        <a>fullname:Eric Ding</a>
+        <a>a=1</a><a>b=2</a>
+        <a href="http://baidu.com">嘿嘿</a>
+        
+        <input placeholder="请输入">
         <ul>
-            <li v-for="gg in todos">
-                <strong>{{gg.text}}</strong>
-                <button v-on:click="remove($index)">remove</button>
+            <li>
+                <strong>aaaaaaaa</strong>
+                <button class="aa">remove</button>
+            </li><li>
+                <strong>bbbbbb</strong>
+                <button class="aa">remove</button>
             </li>
         </ul>
         
     </div>
-</body>
+
 <script src="vue.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
         el:'#app',
         data:{
+            GGstyle:{
+                color:'red',
+                fontSize:'30px',
+                transition:'1s all ease'
+            },
+            aaa:true,
+            bbb:false,
+            placeHolder:'请输入',
             firstname:'Eric',
             lastname:'Ding',
             a:1,
             url:'http://baidu.com',
-            GG:true,
+            url2:'http://120.55.66.210',
+            GG:1,
             message:'',
             todos:[
             {text:'aaaaaaaa'},
