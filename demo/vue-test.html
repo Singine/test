@@ -14,16 +14,17 @@
           <button v-on:click="reverseMessage">Reverse Message</button>
     </div> -->
     <div id="app">
-        <a>firstname:{{firstname}}</a>
+        <a v-bind:style="GGstyle">firstname:{{firstname}}</a>
         <a>lastname:{{lastname}}</a>
         <a>fullname:{{fullname}}</a>
         <a>a={{a}}</a><a>b={{b}}</a>
         <a v-if="GG" v-bind:href="url">嘿嘿</a>
-        <input placeholder="请输入" v-model="message" v-on:keydown.enter="addItems">
+        <a v-else v-bind:href="url2">法克</a>
+        <input placeholder="{{placeHolder}}" v-model="message" v-on:keydown.enter="addItems">
         <ul>
             <li v-for="gg in todos">
                 <strong>{{gg.text}}</strong>
-                <button v-on:click="remove($index)">remove</button>
+                <button v-bind:class="{'aa':aaa, 'bb':bbb}"  v-on:click="remove($index)">remove</button>
             </li>
         </ul>
         
@@ -34,11 +35,20 @@
     var vm = new Vue({
         el:'#app',
         data:{
+            GGstyle:{
+                color:'red',
+                fontSize:'30px',
+                transition:'1s all ease'
+            },
+            aaa:true,
+            bbb:false,
+            placeHolder:'请输入',
             firstname:'Eric',
             lastname:'Ding',
             a:1,
             url:'http://baidu.com',
-            GG:true,
+            url2:'http://120.55.66.210',
+            GG:1,
             message:'',
             todos:[
             {text:'aaaaaaaa'},
