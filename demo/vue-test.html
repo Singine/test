@@ -4,31 +4,46 @@
 	<meta charset="utf-8">
 </head>
 <body>
-   <div id="app">
-        <a style="color: red; font-size: 30px; transition: all 1s ease;">firstname:Eric</a>
-        <a>lastname:Ding</a>
-        <a>fullname:Eric Ding</a>
-        <a>a=1</a><a>b=2</a>
-        <a href="http://baidu.com">嘿嘿</a>
-        
-        <input placeholder="请输入">
+   <!--  <div id="app">
+      <strong>{{ message }}</strong>
+      <ul>
+          <li v-for="todo in todos">
+                {{ todo.text }}
+          </li>
+      </ul>
+          <button v-on:click="reverseMessage">Reverse Message</button>
+    </div> -->
+    <div id="app">
+        <a v-bind:style="GGstyle">firstname:{{firstname}}</a>
+        <a>lastname:{{lastname}}</a>
+        <a>fullname:{{fullname}}</a>
+        <a>a={{a}}</a><a>b={{b}}</a>
+        <a v-if="GG" v-bind:href="url">嘿嘿</a>
+        <a v-else v-bind:href="url2">法克</a>
+        <input placeholder="{{placeHolder}}" v-model="message" v-on:keydown.enter="addItems">
         <ul>
-            <li>
-                <strong>aaaaaaaa</strong>
-                <button class="aa">remove</button>
-            </li><li>
-                <strong>bbbbbb</strong>
-                <button class="aa">remove</button>
-            </li>
+          <li v-for="gg in todos">
+            <strong>{{gg.text}}</strong>
+            <button v-bind:class="{'aa':aaa, 'bb':bbb}"  v-on:click="remove($index)">remove</button>
+          </li>
         </ul>
-        
+        <a v-show="condition">111111111</a>
+        <a v-show="!condition">222222222</a>
+        <ul>
+            <li v-show="condition" v-for="item in items">{{ item.msg }}</li>
+        </ul>
     </div>
-
+</body>
 <script src="vue.js"></script>
 <script type="text/javascript">
     var vm = new Vue({
         el:'#app',
         data:{
+            items:[
+                {msg:'msg1'},
+                {msg:'msg2'}
+            ],
+            condition:1,
             GGstyle:{
                 color:'red',
                 fontSize:'30px',
