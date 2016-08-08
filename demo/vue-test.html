@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+   <!--  <div id="app">
+      <strong>{{ message }}</strong>
+      <ul>
+          <li v-for="todo in todos">
+                {{ todo.text }}
+          </li>
+      </ul>
+          <button v-on:click="reverseMessage">Reverse Message</button>
+    </div> -->
+    <div id="app">
+        <a>firstname:{{firstname}}</a>
+        <a>lastname:{{lastname}}</a>
+        <a>fullname:{{fullname}}</a>
+        <a>a={{a}}</a><a>b={{b}}</a>
+        <a v-if="GG" v-bind:href="url">嘿嘿</a>
+        <input placeholder="请输入" v-model="message" v-on:keydown.enter="addItems">
+        <ul>
+            <li v-for="gg in todos">
+                <strong>{{gg.text}}</strong>
+                <button v-on:click="remove($index)">remove</button>
+            </li>
+        </ul>
+        
+    </div>
+</body>
+<script src="vue.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            firstname:'Eric',
+            lastname:'Ding',
+            a:1,
+            url:'http://baidu.com',
+            GG:true,
+            message:'',
+            todos:[
+            {text:'aaaaaaaa'},
+            {text:'bbbbbb'}
+            ]
+        },
+        computed:{
+            b:function(){
+                return this.a + 1
+            },
+            fullname:{
+                get:function(){
+                    return this.firstname + ' ' + this.lastname
+                },
+                set:function(message){
+                    var names = message.split(' ')
+                    this.firstname = names[0]
+                    this.lastname = names[names.length -1]
+                }
+            }
+        },
+        methods:{
+            addItems:function(){
+                var text = this.message.trim()
+                if(text){
+                    var names = this.message.split(' ')
+                    this.firstname = names[0]
+                    this.lastname = names[names.length -1]
+                    this.todos.push({text:text})
+                    this.message = ''
+                }
+            },
+            remove:function(index){
+                this.todos.splice(index,1)
+            }
+        }
+    })
+    // vm.fullname = 'Kobe Bryant'
+    // new Vue({
+    //     el: '#app',
+    //     data: {
+    //         message: 'Hello Vue.js!',
+    //         todos: [
+    //           { text: 'Learn JavaScript' },
+    //           { text: 'Learn Vue.js' },
+    //           { text: 'Build Something Awesome' }
+    //      ]
+    //     },
+    //     methods:{
+    //         reverseMessage:function(){
+    //             this.message = this.message.split(' ').reverse().join(' ')
+    //         }
+    //     }
+    // })
+
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="HelloAngular">
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div ng-controller="helloNgCtrl">
+		
+		<p>{{greeting.text}},angular</p>
+	</div>
+</body>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+
+	var helloModule = angular.module('HelloAngular',[]);
+	helloModule.controller('helloNgCtrl',['$scope',function($scope){
+		$scope.greeting = {
+			text:'hello',
+		};
+	}]);
+
+</script>
+</html>
